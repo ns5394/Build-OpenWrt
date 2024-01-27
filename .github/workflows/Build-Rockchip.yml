@@ -9,7 +9,7 @@ env:
   REPO_BRANCH: master
   CONFIG_FILE: config/rockchip.config
   DIY_SCRIPT: customize/rockchip.sh
-  CLASH_KERNEL: arm64
+  ARCH_KERNEL: arm64
   UPLOAD_BIN_DIR: false
   FIRMWARE_RELEASE: true
   FIRMWARE_TAG: Rockchip
@@ -118,8 +118,8 @@ jobs:
         chmod +x $DIY_SCRIPT
         $GITHUB_WORKSPACE/$DIY_SCRIPT
         cd $OPENWRT_PATH
-        $GITHUB_WORKSPACE/scripts/preset-clash-core.sh $CLASH_KERNEL
-        $GITHUB_WORKSPACE/scripts/preset-adguard-core.sh $CLASH_KERNEL
+        $GITHUB_WORKSPACE/scripts/preset-clash-core.sh $ARCH_KERNEL
+        $GITHUB_WORKSPACE/scripts/preset-adguard-core.sh $ARCH_KERNEL
 
     - name: 下载软件包
       run: |
