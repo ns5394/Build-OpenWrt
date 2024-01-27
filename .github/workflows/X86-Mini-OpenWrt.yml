@@ -10,7 +10,6 @@ env:
   CONFIG_FILE: config/x86-mini.config
   DIY_SCRIPT: customize/x86-mini.sh
   CLASH_KERNEL: amd64
-  CACHE_TOOLCHAIN: true
   UPLOAD_BIN_DIR: false
   FIRMWARE_RELEASE: true
   FIRMWARE_TAG: X86-Mini
@@ -104,14 +103,6 @@ jobs:
         ln -s /mnt/build_dir ./build_dir
         du -sh /mnt/build_dir
         echo "软链接成功！"
-        
-    - name: 缓存工具链
-      if: env.CACHE_TOOLCHAIN == 'true'
-      uses: HiGarfield/cachewrtbuild@main
-      with:
-        ccache: false
-        mixkey: ${{ env.SOURCE_REPO }}-${{ env.REPO_BRANCH }}-${{ env.DEVICE_TARGET }}-${{ env.DEVICE_SUBTARGET }}
-        prefix: ${{ env.OPENWRT_PATH }}
 
     - name: 更新、安装feeds
       run: |
