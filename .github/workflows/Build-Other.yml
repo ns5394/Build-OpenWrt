@@ -115,5 +115,5 @@ jobs:
       if: steps.compile.outputs.status == 'success'
       uses: actions/upload-artifact@main
       with:
-        name: ${{ env.SOURCE_REPO }}-bin-${{ env.DEVICE_TARGET }}-${{ env.DEVICE_SUBTARGET }}-${{ env.FILE_DATE }}
+        name: OpenWrt-Other
         path: ${{ env.OPENWRT_PATH }}/bin
