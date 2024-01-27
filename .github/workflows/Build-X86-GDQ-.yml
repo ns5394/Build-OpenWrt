@@ -1,4 +1,4 @@
-name: X86 GDQ OpenWrt
+name: Build X86-GDQ
 
 on:
   repository_dispatch:
