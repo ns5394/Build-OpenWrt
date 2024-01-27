@@ -1,5 +1,4 @@
-name: X86 Mini OpenWrt
-
+name: Build X86-Mini
 on:
   repository_dispatch:
   workflow_dispatch:
