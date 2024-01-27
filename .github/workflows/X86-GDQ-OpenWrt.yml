@@ -7,7 +7,7 @@ on:
 env:
   REPO_URL: https://github.com/coolsnowwolf/lede
   REPO_BRANCH: master
-  CONFIG_FILE: configs/x86-gdq.config
+  CONFIG_FILE: config/x86-gdq.config
   DIY_SCRIPT: customize/x86-gdq.sh
   CLASH_KERNEL: amd64
   CACHE_TOOLCHAIN: true
