@@ -7,7 +7,7 @@ on:
 env:
   REPO_URL: https://github.com/coolsnowwolf/lede
   REPO_BRANCH: master
-  CONFIG_FILE: configs/rockchip.config
+  CONFIG_FILE: config/rockchip.config
   DIY_SCRIPT: customize/rockchip.sh
   CLASH_KERNEL: arm64
   CACHE_TOOLCHAIN: true
