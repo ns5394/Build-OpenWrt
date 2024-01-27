@@ -15,7 +15,3 @@ wget -qO- $GEOIP_URL > files/etc/openclash/GeoIP.dat
 wget -qO- $GEOSITE_URL > files/etc/openclash/GeoSite.dat
 
 chmod +x files/etc/openclash/core/clash*
-
-cd files/etc/openclash/core
-echo "files/etc/openclash/core文件夹目录："
-ls
