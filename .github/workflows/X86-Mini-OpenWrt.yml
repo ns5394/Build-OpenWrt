@@ -10,7 +10,7 @@ env:
   CONFIG_FILE: config/x86-mini.config
   DIY_SCRIPT: customize/x86-mini.sh
   CLASH_KERNEL: amd64
-  CACHE_TOOLCHAIN: true
+  CACHE_TOOLCHAIN: false
   UPLOAD_BIN_DIR: false
   FIRMWARE_RELEASE: true
   FIRMWARE_TAG: X86-Mini
