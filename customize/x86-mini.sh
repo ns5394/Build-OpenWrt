@@ -6,8 +6,12 @@
 #=================================================
 
 # 添加额外软件包
-#echo 'src-git kenzo https://github.com/kenzok8/openwrt-packages' >> openwrt/feeds.conf.default
-#echo 'src-git small https://github.com/kenzok8/small' >> openwrt/feeds.conf.default
+git clone https://github.com/kenzok8/openwrt-packages openwrt/kenzo
+git clone https://github.com/kenzok8/small openwrt/small
+mv openwrt/kenzo/* openwrt/package/
+mv openwrt/small/* openwrt/package/
+rm -rf openwrt/kenzo
+rm -rf openwrt/small
 
 # 更改默认IP地址
 sed -i 's/192.168.1.1/192.168.5.1/g' openwrt/package/base-files/files/bin/config_generate
