@@ -14,22 +14,15 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v2
 
-    - name: Delete Old Workflows
-      uses: Mattraks/delete-workflow-runs@main
-      with:
-        token: ${{ secrets.GITHUB_TOKEN }}
-        retain_days: 7
-        keep_minimum_runs: 0
-
     - name: Delete Old Releases and Tags
       uses: actions/github-script@v6
       with:
         github-token: ${{ secrets.GITHUB_TOKEN }}
         script: |
-          # 获取7天前的日期
-          EIGHT_DAYS_AGO=$(date -d '7 days ago' +"%Y-%m-%d")
+          # Get the date 8 days ago
+          EIGHT_DAYS_AGO=$(date -d '8 days ago' +"%Y-%m-%d")
           
-          # 删除8天以前的 Releases
+          # Delete Releases created more than 8 days ago
           gh release list --limit 100 | grep -E "^[0-9]+\.[0-9]+\.[0-9]+$" | while read -r RELEASE; do
             RELEASE_DATE=$(gh release view "$RELEASE" --json created_at --template="{{ json .created_at | @tsv }}" | awk '{print $1}')
             if [[ "$RELEASE_DATE" < "$EIGHT_DAYS_AGO" ]]; then
@@ -37,7 +30,7 @@ jobs:
             fi
           done
 
-          # 删除8天以前的标签
+          # Delete Tags created more than 8 days ago
           git tag -l | grep -E "^v[0-9]+\.[0-9]+\.[0-9]+$" | while read -r TAG; do
             TAG_DATE=$(git log -1 --format=%ai "$TAG" | awk '{print $1}')
             if [[ "$TAG_DATE" < "$EIGHT_DAYS_AGO" ]]; then
