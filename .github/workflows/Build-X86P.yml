@@ -1,4 +1,4 @@
-name: Build X86-PLUS
+name: Build X86P
 
 on:
   repository_dispatch:
