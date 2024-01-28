@@ -1,40 +1,26 @@
 name: Auto Daily Cleanup
 
 on:
-  schedule:
-    - cron: '0 1 * * *'  # 每天1点执行
-  repository_dispatch:
   workflow_dispatch:
+  schedule:
+    - cron: 0 3 * * *
 
 jobs:
-  cleanup:
-    runs-on: ubuntu-latest
-    
+  Cleaning:
+    runs-on: ubuntu-22.04
+
     steps:
-    - name: Checkout repository
-      uses: actions/checkout@v2
-
-    - name: Delete Old Releases and Tags
-      uses: actions/github-script@v6
+    - name: Delete Old Workflows
+      uses: Mattraks/delete-workflow-runs@main
       with:
-        github-token: ${{ secrets.GITHUB_TOKEN }}
-        script: |
-          # Get the date 8 days ago
-          EIGHT_DAYS_AGO=$(date -d '8 days ago' +"%Y-%m-%d")
-          
-          # Delete Releases created more than 8 days ago
-          gh release list --limit 100 | grep -E "^[0-9]+\.[0-9]+\.[0-9]+$" | while read -r RELEASE; do
-            RELEASE_DATE=$(gh release view "$RELEASE" --json created_at --template="{{ json .created_at | @tsv }}" | awk '{print $1}')
-            if [[ "$RELEASE_DATE" < "$EIGHT_DAYS_AGO" ]]; then
-              gh release delete "$RELEASE" --yes
-            fi
-          done
+        token: ${{ secrets.GITHUB_TOKEN }}
+        retain_days: 7
+        keep_minimum_runs: 0
 
-          # Delete Tags created more than 8 days ago
-          git tag -l | grep -E "^v[0-9]+\.[0-9]+\.[0-9]+$" | while read -r TAG; do
-            TAG_DATE=$(git log -1 --format=%ai "$TAG" | awk '{print $1}')
-            if [[ "$TAG_DATE" < "$EIGHT_DAYS_AGO" ]]; then
-              git push --delete origin "$TAG"
-              git tag -d "$TAG"
-            fi
-          done
+    - name: Delete Old Releases
+      uses: dev-drprasad/delete-older-releases@master
+      with:
+        keep_latest: 15
+        delete_tags: true
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
