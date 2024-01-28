@@ -47,5 +47,5 @@ sed -i 's/vpn/services/g; s/VPN/Services/g' openwrt/feeds/luci/applications/luci
 sed -i 's/vpn/services/g' openwrt/feeds/luci/applications/luci-app-zerotier/luasrc/view/zerotier/zerotier_status.htm
 
 # 调整alist到 服务 菜单
-# sed -i 's/nas/services/g; s/NAS/Services/g' openwrt/package/luci-app-alist/luasrc/controller/alist.lua
-# sed -i 's/nas/services/g' openwrt/package/luci-app-alist/luasrc/view/alist/alist_status.htm
+sed -i 's/nas/services/g; s/NAS/Services/g' openwrt/package/luci-app-alist/luasrc/controller/alist.lua
+sed -i 's/nas/services/g' openwrt/package/luci-app-alist/luasrc/view/alist/alist_status.htm
