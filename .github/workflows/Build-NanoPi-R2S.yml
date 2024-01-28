@@ -1,4 +1,4 @@
-name: Build R2S
+name: Build NanoPi-R2S
 
 on:
   repository_dispatch:
