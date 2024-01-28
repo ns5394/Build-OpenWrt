@@ -15,11 +15,12 @@ rm -rf openwrt/small
 
 # 更改默认IP地址
 sed -i 's/192.168.1.1/192.168.8.1/g' openwrt/package/base-files/files/bin/config_generate
-# 更改设备名
-sed -i 's/OpenWrt/R2S/g' openwrt/package/base-files/files/bin/config_generate
 
-# 设置密码为991016
-sed -i 's|^root:::0:99999:7:::|root:$1$0JEhwicN$y./59TClu6QWLU3lAwJWi/:19733:0:99999:7:::|' openwrt/package/base-files/files/etc/shadow
+# 更改设备名
+#sed -i 's/OpenWrt/R2S/g' openwrt/package/base-files/files/bin/config_generate
+
+# 清除默认登录密码
+sed -i 's/$1$V4UetPzk$CYXluq4wUazHjmCDBCqXF.//g' openwrt/package/lean/default-settings/files/zzz-default-settings
 
 # 更改Argone主题背景 设为默认
 cp -f $GITHUB_WORKSPACE/customize/images/bg1.jpg openwrt/package/luci-theme-argone/htdocs/luci-static/argone/img/bg1.jpg
