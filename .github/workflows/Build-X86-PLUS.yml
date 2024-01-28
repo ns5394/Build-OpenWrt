@@ -12,7 +12,7 @@ env:
   ARCH_KERNEL: amd64
   UPLOAD_BIN_DIR: false
   FIRMWARE_RELEASE: true
-  FIRMWARE_TAG: X86-P
+  FIRMWARE_TAG: X86P
   TZ: Asia/Shanghai
 
 jobs:
