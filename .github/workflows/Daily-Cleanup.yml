@@ -1,4 +1,4 @@
-name: Auto Daily Cleanup
+name: Daily Cleanup
 
 on:
   repository_dispatch:
