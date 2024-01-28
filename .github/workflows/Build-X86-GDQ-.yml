@@ -1,4 +1,4 @@
-name: Build X86-GDQ
+name: Build X86-PLUS
 
 on:
   repository_dispatch:
@@ -7,12 +7,12 @@ on:
 env:
   REPO_URL: https://github.com/coolsnowwolf/lede
   REPO_BRANCH: master
-  CONFIG_FILE: config/x86-gdq.config
-  DIY_SCRIPT: customize/x86-gdq.sh
+  CONFIG_FILE: config/x86-plus.config
+  DIY_SCRIPT: customize/x86-plus.sh
   ARCH_KERNEL: amd64
   UPLOAD_BIN_DIR: false
   FIRMWARE_RELEASE: true
-  FIRMWARE_TAG: X86-GDQ
+  FIRMWARE_TAG: X86-P
   TZ: Asia/Shanghai
 
 jobs:
@@ -135,6 +135,7 @@ jobs:
         make -j$(nproc) || make -j1 || make -j1 V=s
         echo "status=success" >> $GITHUB_OUTPUT
         echo "DATE=$(date +"%Y-%m-%d %H:%M:%S")" >> $GITHUB_ENV
+        echo "TAG_DATE=$(date +"%Y-%m-%d-%H-%M")" >> $GITHUB_ENV
         echo "FILE_DATE=$(date +"%Y.%m.%d")" >> $GITHUB_ENV
 
     - name: 上传bin文件夹
@@ -169,7 +170,7 @@ jobs:
       with:
         name: R${{ env.DATE }} for ${{ env.FIRMWARE_TAG }}
         allowUpdates: true
-        tag: ${{ env.FIRMWARE_TAG }}
+        tag: ${{ env.FIRMWARE_TAG }}-${{ env.TAG_DATE }}
         token: ${{ secrets.GITHUB_TOKEN }}
         artifacts: ${{ env.FIRMWARE_PATH }}/*
         body: |
