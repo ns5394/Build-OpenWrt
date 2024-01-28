@@ -1,4 +1,4 @@
-name: Build X86-Mini
+name: Build X86-Min
 on:
   repository_dispatch:
   workflow_dispatch:
