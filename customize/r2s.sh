@@ -17,7 +17,7 @@ rm -rf openwrt/small
 sed -i 's/192.168.1.1/192.168.8.1/g' openwrt/package/base-files/files/bin/config_generate
 
 # 更改设备名
-#sed -i 's/OpenWrt/R2S/g' openwrt/package/base-files/files/bin/config_generate
+# sed -i 's/OpenWrt/R2S/g' openwrt/package/base-files/files/bin/config_generate
 
 # 清除默认登录密码
 sed -i 's/$1$V4UetPzk$CYXluq4wUazHjmCDBCqXF.//g' openwrt/package/lean/default-settings/files/zzz-default-settings
