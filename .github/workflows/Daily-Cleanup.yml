@@ -6,6 +6,7 @@ on:
   
 env:
   UPLOAD_RELEASE: true
+  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
   
 jobs:
   Cleaning:
@@ -25,6 +26,5 @@ jobs:
       uses: dev-drprasad/delete-older-releases@v0.1.0
       if: env.UPLOAD_RELEASE == 'true' && !cancelled()
       with:
-        token: ${{ secrets.GITHUB_TOKEN }}
         keep_latest: 4
         delete_tags: true
