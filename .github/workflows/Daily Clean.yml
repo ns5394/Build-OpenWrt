@@ -14,8 +14,7 @@ jobs:
     runs-on: ubuntu-22.04
 
     steps:
-
-    - name: Delete Old Workflows
+    - name: 删除旧的工作流
       uses: Mattraks/delete-workflow-runs@main
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
