@@ -14,8 +14,8 @@ jobs:
 
     steps:
 
-    - name: 删除运行记录
-      uses: GitRML/delete-workflow-runs@main
+    - name: Delete Old Workflows
+      uses: Mattraks/delete-workflow-runs@main
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
         retain_days: 0
