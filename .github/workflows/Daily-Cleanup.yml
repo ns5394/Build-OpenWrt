@@ -6,6 +6,7 @@ on:
   
 env:
   UPLOAD_RELEASE: true
+  GITHUB_TOKEN: ${{ secrets.AUTH_PAT }}
   
 jobs:
   Cleaning:
@@ -16,13 +17,15 @@ jobs:
     - name: 删除运行记录
       uses: GitRML/delete-workflow-runs@main
       with:
+        token: ${{ env.GITHUB_TOKEN }}
         retain_days: 1
         keep_minimum_runs: 0
-        token: ${{ env.GITHUB_TOKEN }}
+        
 
     - name: 删除自动发布的旧固件
       uses: dev-drprasad/delete-older-releases@v0.1.0
       if: env.UPLOAD_RELEASE == 'true' && !cancelled()
       with:
+        token: ${{ env.GITHUB_TOKEN }}
         keep_latest: 4
         delete_tags: true
