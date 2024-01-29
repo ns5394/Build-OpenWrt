@@ -3,7 +3,10 @@ name: Daily Cleanup
 on:
   repository_dispatch:
   workflow_dispatch:
-
+  
+env:
+  UPLOAD_RELEASE: true
+  
 jobs:
   Cleaning:
     runs-on: ubuntu-22.04
