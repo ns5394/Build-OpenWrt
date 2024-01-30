@@ -3,7 +3,7 @@ name: Daily Cleanup
 on:
   workflow_dispatch:
   schedule:
-    - cron: 50 17 * * *
+    - cron: 50 16 * * *
 
 env:
   UPLOAD_RELEASE: true
