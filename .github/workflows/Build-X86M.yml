@@ -2,6 +2,8 @@ name: Build X86M
 on:
   repository_dispatch:
   workflow_dispatch:
+  schedule:
+    - cron: 0 18 * * *
 
 env:
   REPO_URL: https://github.com/coolsnowwolf/lede
