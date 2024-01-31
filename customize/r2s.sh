@@ -6,12 +6,12 @@
 #=================================================
 
 # 添加额外软件包
-# git clone https://github.com/kenzok8/openwrt-packages openwrt/kenzo
-# git clone https://github.com/kenzok8/small openwrt/small
-# mv -f openwrt/kenzo/* openwrt/package/
-# mv -f openwrt/small/* openwrt/package/
-# rm -rf openwrt/kenzo
-# rm -rf openwrt/small
+git clone https://github.com/kenzok8/openwrt-packages openwrt/kenzo
+git clone https://github.com/kenzok8/small openwrt/small
+mv -f openwrt/kenzo/* openwrt/package/
+mv -f openwrt/small/* openwrt/package/
+rm -rf openwrt/kenzo
+rm -rf openwrt/small
 
 
 # 更改默认IP地址
