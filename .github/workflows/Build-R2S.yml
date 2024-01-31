@@ -14,7 +14,7 @@ env:
   ARCH_KERNEL: arm64
   UPLOAD_BIN_DIR: false
   FIRMWARE_RELEASE: true
-  CACHE_TOOLCHAIN: false
+  CACHE_TOOLCHAIN: true
   FIRMWARE_TAG: R2S
   TZ: Asia/Shanghai
 
