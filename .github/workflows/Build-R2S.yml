@@ -117,6 +117,7 @@ jobs:
     - name: 更新、安装feeds
       run: |
         cd $OPENWRT_PATH
+        cp -f $GITHUB_WORKSPACE/customize/diy/feeds.conf ./feeds.conf
         ./scripts/feeds update -a
         ./scripts/feeds install -a
 
