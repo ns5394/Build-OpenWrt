@@ -53,5 +53,5 @@ sed -i 's/nas/services/g' openwrt/package/luci-app-alist/luasrc/view/alist/alist
 
 #设置默认宽带拨号
 sed -i 's/-dhcp/-pppoe/g' openwrt/package/base-files//files/lib/functions/uci-defaults.sh
-sed -i 's/'username'/'t530fzjzy176601323'/g' openwrt/package/base-files/files/bin/config_generate
-sed -i 's/'password'/'372925'/g' openwrt/package/base-files/files/bin/config_generate
+sed -i "s/'username'/'t530fzjzy176601323'/g" openwrt/package/base-files/files/bin/config_generate
+sed -i "s/password='password'/password='372925'/g" openwrt/package/base-files/files/bin/config_generate
