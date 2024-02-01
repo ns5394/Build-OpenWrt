@@ -7,13 +7,24 @@ Hysteria_URL="https://github.com/apernet/hysteria/releases/latest/download/hyste
 ChinaDNS_URL="https://github.com/zfl9/chinadns-ng/releases/latest/download/chinadns-ng-aarch64"
 TrojanGo_URL="https://github.com/p4gefau1t/trojan-go/releases/latest/download/trojan-go-linux-arm.zip"
 Xray_URL="https://github.com/XTLS/Xray-core/releases/latest/download/Xray-linux-arm64-v8a.zip"
-SingBox_URL="https://github.com/SagerNet/sing-box/releases/latest/download/sing-box-1.8.4-linux-arm64.tar.gz"
+
 
 wget -qO- $Brook_URL > files/usr/bin/brook
 wget -qO- $Hysteria_URL > files/usr/bin/hysteria
 wget -qO- $ChinaDNS_URL > files/usr/bin/chinadns-ng
-wget -qO- $TrojanGo_URL | unzip -p - ./trojan-go > files/usr/bin/trojan-go
-wget -qO- $Xray_URL | unzip -p - ./xray > files/usr/bin/xray
-wget -qO- $SingBox_URL | tar xOvz > files/usr/bin/sing-box
+
+wget -O trojan-go.zip $TrojanGo_URL
+unzip trojan-go.zip trojan-go -d files/usr/bin
+rm -rf trojan-go.zip
+
+wget -O xray.zip $Xray_URL
+unzip xray.zip xray -d files/usr/bin
+rm -rf xray.zip
+
+LATEST_SingBox=$(curl -sI "https://github.com/SagerNet/sing-box/releases/latest" | grep -i "location:" | awk -F "/" '{gsub(/^v/, "", $NF); print $NF}' | tr -d '\r')
+wget -O "sing-box-${LATEST_SingBox}-linux-arm64.tar.gz" "https://github.com/SagerNet/sing-box/releases/latest/download/sing-box-${LATEST_SingBox}-linux-arm64.tar.gz"
+tar xzf sing-box-${LATEST_SingBox}-linux-arm64.tar.gz
+mv sing-box-${LATEST_SingBox}-linux-arm64/sing-box files/usr/bin/
+rm -rf sing-box-${LATEST_SingBox}-linux-arm64 && rm -rf sing-box-${LATEST_SingBox}-linux-arm64.tar.gz
 
 chmod +x files/usr/bin/*
