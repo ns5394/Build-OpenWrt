@@ -4,8 +4,8 @@ ARCH="${1}"
 
 mkdir -p files/usr/bin
 
-Brook_URL="https://github.com/txthinking/brook/releases/latest/download/brook_linux_${1}"
-Hysteria_URL="https://github.com/apernet/hysteria/releases/latest/download/hysteria-linux-${1}"
+Brook_URL="https://github.com/txthinking/brook/releases/latest/download/brook_linux_${ARCH}"
+Hysteria_URL="https://github.com/apernet/hysteria/releases/latest/download/hysteria-linux-${ARCH}"
 wget -qO- $Brook_URL > files/usr/bin/brook
 wget -qO- $Hysteria_URL > files/usr/bin/hysteria
 
