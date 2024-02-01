@@ -28,3 +28,6 @@ mv sing-box-${LATEST_SingBox}-linux-arm64/sing-box files/usr/bin/
 rm -rf sing-box-${LATEST_SingBox}-linux-arm64 && rm -rf sing-box-${LATEST_SingBox}-linux-arm64.tar.gz
 
 chmod +x files/usr/bin/*
+
+cd files/usr/bin
+ls
