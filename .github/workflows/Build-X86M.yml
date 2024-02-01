@@ -129,6 +129,7 @@ jobs:
         cd $OPENWRT_PATH
         $GITHUB_WORKSPACE/scripts/preset-clash-core.sh $ARCH_KERNEL
         $GITHUB_WORKSPACE/scripts/preset-adguard-core.sh $ARCH_KERNEL
+        $GITHUB_WORKSPACE/scripts/preset-psswall.sh $ARCH_KERNEL
 
     - name: 下载软件包
       run: |
