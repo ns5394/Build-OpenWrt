@@ -32,10 +32,20 @@ wget -O xray.zip $Xray_URL
 unzip xray.zip xray -d files/usr/bin
 rm -rf xray.zip
 
+# 下载最新版本的 sing-box------------------------------
 wget -O "sing-box-${LATEST_SingBox}-linux-${ARCH}.tar.gz" "$SINGBOX_URL"
 tar xzf sing-box-${LATEST_SingBox}-linux-${ARCH}.tar.gz
 mv sing-box-${LATEST_SingBox}-linux-${ARCH}/sing-box files/usr/bin/
 rm -rf sing-box-${LATEST_SingBox}-linux-${ARCH} && rm -rf sing-box-${LATEST_SingBox}-linux-${ARCH}.tar.gz
+
+# 下载最新版本的 v2ray-plugin-------------------------
+wget $(curl -s https://api.github.com/repos/shadowsocks/v2ray-plugin/releases/latest | grep browser_download_url | grep linux-${ARCH} | cut -d '"' -f 4) -O v2ray-plugin.tar.gz
+tar -zxvf v2ray-plugin.tar.gz
+mv v2ray-plugin_linux_${ARCH} v2ray-plugin
+mv v2ray-plugin files/usr/bin/
+rm -rf v2ray-plugin.tar.gz
+---------------------------------------------------
+
 
 chmod +x files/usr/bin/*
 
