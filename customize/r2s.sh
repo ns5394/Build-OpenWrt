@@ -51,8 +51,8 @@ mkdir -p openwrt/files/etc/config
 cp -f $GITHUB_WORKSPACE/customize/diy/zerotier openwrt/files/etc/config/
 
 # 调整alist到 服务 菜单
-sed -i 's/nas/services/g; s/NAS/Services/g' openwrt/package/luci-app-alist/luasrc/controller/alist.lua
-sed -i 's/nas/services/g' openwrt/package/luci-app-alist/luasrc/view/alist/alist_status.htm
+# sed -i 's/nas/services/g; s/NAS/Services/g' openwrt/package/luci-app-alist/luasrc/controller/alist.lua
+# sed -i 's/nas/services/g' openwrt/package/luci-app-alist/luasrc/view/alist/alist_status.htm
 
 #设置默认宽带拨号
 sed -i 's/-dhcp/-pppoe/g' openwrt/package/base-files//files/lib/functions/uci-defaults.sh
