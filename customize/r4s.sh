@@ -54,7 +54,7 @@ cp -f $GITHUB_WORKSPACE/customize/diy/zerotier openwrt/files/etc/config/
 # sed -i 's/nas/services/g; s/NAS/Services/g' openwrt/package/luci-app-alist/luasrc/controller/alist.lua
 # sed -i 's/nas/services/g' openwrt/package/luci-app-alist/luasrc/view/alist/alist_status.htm
 
-#设置默认宽带拨号
-sed -i 's/-dhcp/-pppoe/g' openwrt/package/base-files//files/lib/functions/uci-defaults.sh
-sed -i "s/'username'/'t530fzjzy176601323'/g" openwrt/package/base-files/files/bin/config_generate
-sed -i "s/password='password'/password='372925'/g" openwrt/package/base-files/files/bin/config_generate
+# 设置默认宽带拨号
+# sed -i 's/-dhcp/-pppoe/g' openwrt/package/base-files//files/lib/functions/uci-defaults.sh
+# sed -i "s/'username'/'t530fzjzy176601323'/g" openwrt/package/base-files/files/bin/config_generate
+# sed -i "s/password='password'/password='372925'/g" openwrt/package/base-files/files/bin/config_generate
