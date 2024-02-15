@@ -47,8 +47,8 @@ sed -i 's/os.date()/os.date("%a %Y-%m-%d %H:%M:%S")/g' openwrt/package/lean/auto
 # 调整 ZeroTier 到 服务 菜单
 sed -i 's/vpn/services/g; s/VPN/Services/g' openwrt/feeds/luci/applications/luci-app-zerotier/luasrc/controller/zerotier.lua
 sed -i 's/vpn/services/g' openwrt/feeds/luci/applications/luci-app-zerotier/luasrc/view/zerotier/zerotier_status.htm
-mkdir -p openwrt/files/etc/config
-cp -f $GITHUB_WORKSPACE/customize/diy/zerotier openwrt/files/etc/config/
+# mkdir -p openwrt/files/etc/config
+# cp -f $GITHUB_WORKSPACE/customize/diy/zerotier openwrt/files/etc/config/
 
 # 调整alist到 服务 菜单
 # sed -i 's/nas/services/g; s/NAS/Services/g' openwrt/package/luci-app-alist/luasrc/controller/alist.lua
