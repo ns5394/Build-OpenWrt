@@ -1,4 +1,4 @@
-name: Build X86M
+name: Build X86PANG
 on:
   repository_dispatch:
   workflow_dispatch:
