@@ -14,7 +14,7 @@ rm -rf openwrt/kenzo
 rm -rf openwrt/small
 
 # 更改默认IP地址
-sed -i 's/192.168.1.1/192.168.5.1/g' openwrt/package/base-files/files/bin/config_generate
+sed -i 's/192.168.1.1/192.168.5.1/g' openwrt/package/base-files/luci2/bin/config_generate
 
 # 更改设备名
 # sed -i 's/OpenWrt/N4100/g' openwrt/package/base-files/files/bin/config_generate
@@ -24,7 +24,7 @@ sed -i 's/$1$V4UetPzk$CYXluq4wUazHjmCDBCqXF.//g' openwrt/package/lean/default-se
 
 # 更改Argone主题背景 设为默认
 # cp -f $GITHUB_WORKSPACE/customize/images/bg1.jpg openwrt/package/luci-theme-argone/htdocs/luci-static/argone/img/bg1.jpg
-sed -i 's/bootstrap/argon/g' openwrt/feeds/luci/collections/luci/Makefile
+sed -i 's/bootstrap/argon/g' openwrtfeeds/luci/collections/luci-light/Makefile
 
 # 更改banner
 cp -f $GITHUB_WORKSPACE/customize/diy/banner openwrt/package/base-files/files/etc/banner
