@@ -51,5 +51,3 @@ sed -i 's/os.date()/os.date("%a %Y-%m-%d %H:%M:%S")/g' openwrt/package/lean/auto
 # sed -i 's/nas/services/g; s/NAS/Services/g' openwrt/package/luci-app-alist/luasrc/controller/alist.lua
 # sed -i 's/nas/services/g' openwrt/package/luci-app-alist/luasrc/view/alist/alist_status.htm
 
-./scripts/feeds update -a
-./scripts/feeds install -a
