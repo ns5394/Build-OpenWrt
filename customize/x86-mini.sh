@@ -24,6 +24,7 @@ sed -i 's/$1$V4UetPzk$CYXluq4wUazHjmCDBCqXF.//g' openwrt/package/lean/default-se
 
 # 更改Argone主题背景 设为默认
 cp -f $GITHUB_WORKSPACE/customize/images/bg1.jpg openwrt/package/luci-theme-argon/htdocs/luci-static/argon/img/bg1.jpg
+sed -i 's/bootstrap/argon/g' openwrtfeeds/luci/collections/luci/Makefile
 sed -i 's/bootstrap/argon/g' openwrtfeeds/luci/collections/luci-light/Makefile
 
 # 更改banner
