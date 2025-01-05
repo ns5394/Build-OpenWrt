@@ -13,7 +13,7 @@ LATEST_SingBox=$(curl -sI "https://github.com/SagerNet/sing-box/releases/latest"
 
 # 根据不同的架构执行不同的命令
 if [ "${ARCH}" == "amd64" ]; then
-  ChinaDNS_URL="https://github.com/zfl9/chinadns-ng/releases/latest/download/chinadns-ng-x86_64"
+  ChinaDNS_URL="https://github.com/zfl9/chinadns-ng/releases/latest/download/chinadns-ng@x86_64-linux-musl@x86_64@fast+lto"
   TrojanGo_URL="https://github.com/p4gefau1t/trojan-go/releases/latest/download/trojan-go-linux-${ARCH}.zip"
   Xray_URL="https://github.com/XTLS/Xray-core/releases/latest/download/Xray-linux-64.zip"
   SINGBOX_URL="https://github.com/SagerNet/sing-box/releases/latest/download/sing-box-${LATEST_SingBox}-linux-${ARCH}.tar.gz"
