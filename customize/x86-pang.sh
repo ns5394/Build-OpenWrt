@@ -8,6 +8,7 @@
 # 添加额外软件包
 git clone https://github.com/kenzok8/openwrt-packages openwrt/kenzo
 git clone https://github.com/kenzok8/small openwrt/small
+rm -rf openwrt/kenzo/luci-theme-argon
 mv -f openwrt/kenzo/* openwrt/package/
 mv -f openwrt/small/* openwrt/package/
 rm -rf openwrt/kenzo
