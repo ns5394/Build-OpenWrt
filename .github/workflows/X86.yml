@@ -42,13 +42,6 @@ jobs:
             echo "DIY_SCRIPT=customize/x86-pang.sh" >> $GITHUB_ENV
             echo "FIRMWARE_TAG=X86PANG" >> $GITHUB_ENV
           fi
-
-    - name: 验证环境变量
-      run: |
-          echo "CONFIG_FILE=${{ env.CONFIG_FILE }}"
-          echo "DIY_SCRIPT=${{ env.DIY_SCRIPT }}"
-          echo "ARCH_KERNEL=${{ env.ARCH_KERNEL }}"
-          echo "FIRMWARE_TAG=${{ env.FIRMWARE_TAG }}"
           
     - name: 准备完成
       uses: actions/checkout@main
