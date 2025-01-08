@@ -15,11 +15,11 @@ rm -rf openwrt/small
 
 # 更改默认IP地址
 sed -i 's/192.168.1.1/192.168.5.3/g' openwrt/package/base-files/file/bin/config_generate
-# sed -i 's/192.168.1.1/192.168.5.3/g' openwrt/package/base-files/luci2/bin/config_generate
+sed -i 's/192.168.1.1/192.168.5.3/g' openwrt/package/base-files/luci2/bin/config_generate
 
 # 更改设备名
-# sed -i 's/LEDE/OpenWrt/g' openwrt/package/base-files/files/bin/config_generate
-# sed -i 's/LEDE/OpenWrt/g' openwrt/package/base-files/luci2/bin/config_generate
+sed -i 's/LEDE/OpenWrt/g' openwrt/package/base-files/files/bin/config_generate
+sed -i 's/LEDE/OpenWrt/g' openwrt/package/base-files/luci2/bin/config_generate
 
 
 # 清除默认登录密码
