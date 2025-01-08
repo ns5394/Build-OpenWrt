@@ -30,7 +30,7 @@ sed -i \
 
 # 更改设备名
 sed -i 's/LEDE/OpenWrt/g' openwrt/package/base-files/files/bin/config_generate
-sed -i 's/LEDE/OpenWrt/g' openwrt/package/base-files/luci2/bin/config_generate
+# sed -i 's/LEDE/OpenWrt/g' openwrt/package/base-files/luci2/bin/config_generate
 
 
 # 清除默认登录密码
