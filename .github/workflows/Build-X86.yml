@@ -27,8 +27,9 @@ jobs:
     runs-on: ubuntu-22.04
 
     steps:
-    - name: 设置X86编译版本
+    - name: 设置X86编译版本、分支版本
       run: |
+          echo "BRANCH_NAME=$(git rev-parse --abbrev-ref HEAD)" >> $GITHUB_ENV
           if [ "${{ github.event.inputs.build_target }}" == "X86MINI" ]; then
             echo "CONFIG_FILE=config/x86-mini.config" >> $GITHUB_ENV
             echo "DIY_SCRIPT=customize/x86-mini.sh" >> $GITHUB_ENV
@@ -214,7 +215,7 @@ jobs:
       with:
         name: R${{ env.DATE }} for ${{ env.FIRMWARE_TAG }}
         allowUpdates: true
-        tag: ${{ env.FIRMWARE_TAG }}
+        tag: ${{ env.FIRMWARE_TAG }}-${{ env.BRANCH_NAME }}
         token: ${{ secrets.GITHUB_TOKEN }}
         artifacts: ${{ env.FIRMWARE_PATH }}/*
         body: |
