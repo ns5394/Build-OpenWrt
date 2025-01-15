@@ -8,7 +8,7 @@
 # 添加额外软件包
 git clone https://github.com/kenzok8/openwrt-packages openwrt/kenzo
 git clone https://github.com/kenzok8/small openwrt/small
-rm -rf openwrt/kenzo/luci-theme-argon
+rm -rf openwrt/feeds/luci/themes/luci-theme-argon
 mv -f openwrt/kenzo/* openwrt/package/
 mv -f openwrt/small/* openwrt/package/
 rm -rf openwrt/kenzo
@@ -28,11 +28,9 @@ sed -i \
     -e '/set network\.\$1\.gateway/a\    set network.$1.dns='\''223.5.5.5'\''' \
     openwrt/package/base-files/files/bin/config_generate
 
-
 # 更改设备名
 sed -i 's/LEDE/OpenWrt/g' openwrt/package/base-files/files/bin/config_generate
 sed -i 's/LEDE/OpenWrt/g' openwrt/package/base-files/luci2/bin/config_generate
-
 
 # 清除默认登录密码
 sed -i 's/$1$V4UetPzk$CYXluq4wUazHjmCDBCqXF.//g' openwrt/package/lean/default-settings/files/zzz-default-settings
@@ -60,9 +58,12 @@ sed -i 's|/bin/login|/bin/login -f root|g' openwrt/feeds/packages/utils/ttyd/fil
 sed -i 's/os.date()/os.date("%a %Y-%m-%d %H:%M:%S")/g' openwrt/package/lean/autocore/files/*/index.htm
 
 # 调整 ZeroTier 到 服务 菜单
-#sed -i 's/vpn/services/g; s/VPN/Services/g' openwrt/feeds/luci/applications/luci-app-zerotier/luasrc/controller/zerotier.lua
+sed -i 's/vpn/services/g' openwrt/feeds/luci/applications/luci-app-zerotier/root/usr/share/luci/menu.d/luci-app-zerotier.json
 #sed -i 's/vpn/services/g' openwrt/feeds/luci/applications/luci-app-zerotier/luasrc/view/zerotier/zerotier_status.htm
 
 # 调整alist到 服务 菜单
 # sed -i 's/nas/services/g; s/NAS/Services/g' openwrt/package/luci-app-alist/luasrc/controller/alist.lua
 # sed -i 's/nas/services/g' openwrt/package/luci-app-alist/luasrc/view/alist/alist_status.htm
+
+
+
