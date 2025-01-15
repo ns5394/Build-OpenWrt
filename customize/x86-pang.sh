@@ -20,12 +20,10 @@ rm -rf openwrt/small
 sed -i \
     -e 's/192\.168\.1\.1/192.168.5.3/' \
     -e '/set network\.\$1\.netmask/a\    set network.$1.gateway='\''192.168.5.1'\''' \
-    -e '/set network\.\$1\.gateway/a\    set network.$1.dns='\''223.5.5.5'\''' \
     openwrt/package/base-files/luci2/bin/config_generate
 sed -i \
     -e 's/192.168.1.1/192.168.5.3/' \
     -e '/set network\.\$1\.netmask/a\    set network.$1.gateway='\''192.168.5.1'\''' \
-    -e '/set network\.\$1\.gateway/a\    set network.$1.dns='\''223.5.5.5'\''' \
     openwrt/package/base-files/files/bin/config_generate
 
 # 更改设备名
