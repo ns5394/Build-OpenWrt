@@ -36,7 +36,7 @@ sed -i 's/$1$V4UetPzk$CYXluq4wUazHjmCDBCqXF.//g' openwrt/package/lean/default-se
 # 更改Argone主题背景 设为默认
 cp -f $GITHUB_WORKSPACE/customize/images/bg1.jpg openwrt/package/luci-theme-argone/htdocs/luci-static/argone/img/bg1.jpg
 sed -i 's/bootstrap/argone/g' openwrt/feeds/luci/collections/luci/Makefile
-sed -i 's/bootstrap/argone/g' openwrt/feeds/luci/collections/luci-light/Makefile
+# sed -i 's/bootstrap/argone/g' openwrt/feeds/luci/collections/luci-light/Makefile
 
 # 更改banner
 cp -f $GITHUB_WORKSPACE/customize/diy/banner openwrt/package/base-files/files/etc/banner
@@ -56,8 +56,8 @@ sed -i 's|/bin/login|/bin/login -f root|g' openwrt/feeds/packages/utils/ttyd/fil
 sed -i 's/os.date()/os.date("%a %Y-%m-%d %H:%M:%S")/g' openwrt/package/lean/autocore/files/*/index.htm
 
 # 调整 ZeroTier 到 服务 菜单
-sed -i 's/vpn/services/g' openwrt/feeds/luci/applications/luci-app-zerotier/root/usr/share/luci/menu.d/luci-app-zerotier.json
-#sed -i 's/vpn/services/g' openwrt/feeds/luci/applications/luci-app-zerotier/luasrc/view/zerotier/zerotier_status.htm
+# sed -i 's/vpn/services/g' openwrt/feeds/luci/applications/luci-app-zerotier/root/usr/share/luci/menu.d/luci-app-zerotier.json
+# sed -i 's/vpn/services/g' openwrt/feeds/luci/applications/luci-app-zerotier/luasrc/view/zerotier/zerotier_status.htm
 
 # 调整alist到 服务 菜单
 # sed -i 's/nas/services/g; s/NAS/Services/g' openwrt/package/luci-app-alist/luasrc/controller/alist.lua
