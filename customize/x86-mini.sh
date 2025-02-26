@@ -8,7 +8,7 @@
 # 添加额外软件包
 git clone https://github.com/kenzok8/openwrt-packages openwrt/kenzo
 git clone https://github.com/kenzok8/small openwrt/small
-rm -rf openwrt/feeds/luci/themes/luci-theme-argon
+rm -rf openwrt/kenzo/luci-theme-argon
 mv -f openwrt/kenzo/* openwrt/package/
 mv -f openwrt/small/* openwrt/package/
 rm -rf openwrt/kenzo
@@ -26,9 +26,9 @@ sed -i 's/LEDE/OpenWrt/g' openwrt/package/base-files/luci2/bin/config_generate
 sed -i 's/$1$V4UetPzk$CYXluq4wUazHjmCDBCqXF.//g' openwrt/package/lean/default-settings/files/zzz-default-settings
 
 # 更改Argone主题背景 设为默认
-cp -f $GITHUB_WORKSPACE/customize/images/bg1.jpg openwrt/package/luci-theme-argone/htdocs/luci-static/argone/img/bg1.jpg
-sed -i 's/bootstrap/argone/g' openwrt/feeds/luci/collections/luci/Makefile
-# sed -i 's/bootstrap/argon/g' openwrt/feeds/luci/collections/luci-light/Makefile
+cp -f $GITHUB_WORKSPACE/customize/images/bg1.jpg openwrt/package/luci-theme-argon/htdocs/luci-static/argon/img/bg1.jpg
+sed -i 's/bootstrap/argon/g' openwrt/feeds/luci/collections/luci/Makefile
+sed -i 's/bootstrap/argon/g' openwrt/feeds/luci/collections/luci-light/Makefile
 
 # 更改banner
 cp -f $GITHUB_WORKSPACE/customize/diy/banner openwrt/package/base-files/files/etc/banner
