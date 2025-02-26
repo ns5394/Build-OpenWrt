@@ -14,8 +14,9 @@
 # rm -rf openwrt/kenzo
 # rm -rf openwrt/small
 
-cd openwrt/package
 git clone https://github.com/jerrykuku/luci-app-argon-config.git 
+mv -f luci-app-argon-config openwrt/package/
+rm -rf luci-app-argon-config
 
 # 更改默认IP地址
 sed -i 's/192.168.1.1/192.168.5.1/g' openwrt/package/base-files/files/bin/config_generate
