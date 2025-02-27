@@ -6,17 +6,17 @@
 #=================================================
 
 # 添加额外软件包
-git clone https://github.com/kenzok8/openwrt-packages openwrt/kenzo
-git clone https://github.com/kenzok8/small openwrt/small
-rm -rf openwrt/kenzo/luci-theme-argon
-mv -f openwrt/kenzo/* openwrt/package/
-mv -f openwrt/small/* openwrt/package/
-rm -rf openwrt/kenzo
-rm -rf openwrt/small
+# git clone https://github.com/kenzok8/openwrt-packages openwrt/kenzo
+# git clone https://github.com/kenzok8/small openwrt/small
+# rm -rf openwrt/kenzo/luci-theme-argon
+# mv -f openwrt/kenzo/* openwrt/package/
+# mv -f openwrt/small/* openwrt/package/
+# rm -rf openwrt/kenzo
+# rm -rf openwrt/small
 
-# git clone https://github.com/jerrykuku/luci-app-argon-config.git 
-# mv -f luci-app-argon-config openwrt/package/
-# rm -rf luci-app-argon-config
+git clone https://github.com/jerrykuku/luci-app-argon-config.git 
+mv -f luci-app-argon-config openwrt/package/
+rm -rf luci-app-argon-config
 
 # 更改默认IP地址
 sed -i 's/192.168.1.1/192.168.5.1/g' openwrt/package/base-files/files/bin/config_generate
