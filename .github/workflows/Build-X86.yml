@@ -137,7 +137,6 @@ jobs:
     - name: 更新、安装feeds
       run: |
         cd $OPENWRT_PATH
-        # sed -i '/^#src-git luci https:\/\/github.com\/coolsnowwolf\/luci$/s/^#//' feeds.conf.default && sed -i '/^src-git luci https:\/\/github.com\/coolsnowwolf\/luci\.git;openwrt-23\.05$/s/^/#/' feeds.conf.default
         ./scripts/feeds update -a
         ./scripts/feeds install -a
 
@@ -148,9 +147,9 @@ jobs:
         chmod +x $GITHUB_WORKSPACE/scripts/*.sh
         chmod +x $DIY_SCRIPT
         $GITHUB_WORKSPACE/$DIY_SCRIPT
-        # cd $OPENWRT_PATH
-        # $GITHUB_WORKSPACE/scripts/preset-clash-core.sh $ARCH_KERNEL
-        # $GITHUB_WORKSPACE/scripts/preset-adguard-core.sh $ARCH_KERNEL
+        cd $OPENWRT_PATH
+        $GITHUB_WORKSPACE/scripts/preset-clash-core.sh $ARCH_KERNEL
+        $GITHUB_WORKSPACE/scripts/preset-adguard-core.sh $ARCH_KERNEL
         # $GITHUB_WORKSPACE/scripts/preset-psswall.sh $ARCH_KERNEL
 
     - name: 下载软件包
