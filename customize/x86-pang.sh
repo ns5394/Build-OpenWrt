@@ -6,13 +6,13 @@
 #=================================================
 
 # 添加额外软件包
-# git clone https://github.com/kenzok8/openwrt-packages openwrt/kenzo
-# git clone https://github.com/kenzok8/small openwrt/small
-# rm -rf openwrt/feeds/luci/themes/luci-theme-argon
-# mv -f openwrt/kenzo/* openwrt/package/
-# mv -f openwrt/small/* openwrt/package/
-# rm -rf openwrt/kenzo
-# rm -rf openwrt/small
+git clone https://github.com/kenzok8/openwrt-packages openwrt/kenzo
+git clone https://github.com/kenzok8/small openwrt/small
+rm -rf openwrt/feeds/luci/themes/luci-theme-argon
+mv -f openwrt/kenzo/* openwrt/package/
+mv -f openwrt/small/* openwrt/package/
+rm -rf openwrt/kenzo
+rm -rf openwrt/small
 
 # git clone https://github.com/jerrykuku/luci-app-argon-config.git 
 # mv -f luci-app-argon-config openwrt/package/
