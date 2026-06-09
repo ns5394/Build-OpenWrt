@@ -14,9 +14,10 @@
 # rm -rf openwrt/kenzo
 # rm -rf openwrt/small
 
-git clone https://github.com/jerrykuku/luci-app-argon-config.git 
-mv -f luci-app-argon-config openwrt/package/
-rm -rf luci-app-argon-config
+rm -rf openwrt/feeds/luci/applications/luci-app-adguardhome
+git clone https://github.com/rufengsuixing/luci-app-adguardhome.git
+mv -f luci-app-adguardhome openwrt/feeds/luci/applications/
+rm -rf luci-app-adguardhome
 
 # 更改默认IP地址
 sed -i 's/192.168.1.1/192.168.5.1/g' openwrt/package/base-files/files/bin/config_generate
@@ -30,10 +31,10 @@ sed -i 's/LEDE/OpenWrt/g' openwrt/package/base-files/luci2/bin/config_generate
 sed -i 's/$1$V4UetPzk$CYXluq4wUazHjmCDBCqXF.//g' openwrt/package/lean/default-settings/files/zzz-default-settings
 
 # 更改Argone主题背景 设为默认
-#cp -f $GITHUB_WORKSPACE/customize/images/bg1.jpg openwrt/feeds/luci/themes/luci-theme-argon/htdocs/luci-static/argon/img/bg1.jpg
-#sed -i 's/bootstrap/argon/g' openwrt/feeds/luci/collections/luci/Makefile
-#sed -i 's/bootstrap/argon/g' openwrt/feeds/luci/collections/luci-light/Makefile
-#sed -i 's/bootstrap/argon/g' openwrt/feeds/luci/collections/luci-ssl-nginx/Makefile
+cp -f $GITHUB_WORKSPACE/customize/images/bg1.jpg openwrt/feeds/luci/themes/luci-theme-argon/htdocs/luci-static/argon/img/bg1.jpg
+sed -i 's/bootstrap/argon/g' openwrt/feeds/luci/collections/luci/Makefile
+sed -i 's/bootstrap/argon/g' openwrt/feeds/luci/collections/luci-light/Makefile
+sed -i 's/bootstrap/argon/g' openwrt/feeds/luci/collections/luci-ssl-nginx/Makefile
 
 # 更改banner
 cp -f $GITHUB_WORKSPACE/customize/diy/banner openwrt/package/base-files/files/etc/banner
