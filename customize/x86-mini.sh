@@ -34,7 +34,6 @@ sed -i 's/$1$V4UetPzk$CYXluq4wUazHjmCDBCqXF.//g' openwrt/package/lean/default-se
 cp -f $GITHUB_WORKSPACE/customize/images/bg1.jpg openwrt/feeds/luci/themes/luci-theme-argon/htdocs/luci-static/argon/img/bg1.jpg
 sed -i 's/bootstrap/argon/g' openwrt/feeds/luci/collections/luci/Makefile
 sed -i 's/bootstrap/argon/g' openwrt/feeds/luci/collections/luci-light/Makefile
-sed -i 's/bootstrap/argon/g' openwrt/feeds/luci/collections/luci-ssl-nginx/Makefile
 
 # 更改banner
 cp -f $GITHUB_WORKSPACE/customize/diy/banner openwrt/package/base-files/files/etc/banner
